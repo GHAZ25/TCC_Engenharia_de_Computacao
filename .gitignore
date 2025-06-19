@@ -1,0 +1,5 @@
+.env
+.ipnynb_checkpoints/
+error/
+venv/
+*.pyc
