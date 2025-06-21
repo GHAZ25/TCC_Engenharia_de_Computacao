@@ -1,5 +1,5 @@
 .env
-.ipnynb_checkpoints/
+.ipynb_checkpoints
 error/
 venv/
 *.pyc

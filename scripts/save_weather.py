@@ -26,6 +26,10 @@ try:
         # Obtém os dados meteorológicos para o WOEID atual
         dados = get_weather(woeid)
 
+        # Verifica se os dados foram encontrados
+        if dados["results"]["city"] == "" or dados["results"]["city"] == None:
+            raise Exception(f"Dados meteorológicos não encontrados para o WOEID {woeid}.")
+
         # Adiciona o resultado dos dados metereológicos encontrados no MongoDB
         id = insert_data(DB_TABLE_WEATHER, dados)
 
@@ -42,4 +46,4 @@ except Exception as e:
 
     # Registra o erro em um arquivo de log
     with open(f"{BASE_DIR}/error/{datetime.now().strftime("%Y-%m-%d")}.txt", "a") as arquivo:
-        arquivo.write(f"Erro: {e}.")
+        arquivo.write(f"Erro: {e}.\n")

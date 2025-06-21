@@ -2,8 +2,8 @@ import os
 from dotenv import load_dotenv
 
 # Define o caminho absoluto do arquivo .env
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ENV_FILE = os.path.join(BASE_DIR, "../.env")
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
+ENV_FILE = os.path.join(BASE_DIR, ".env")
 
 # Carrega o arquivo .env
 load_dotenv(ENV_FILE)

@@ -2,8 +2,11 @@
 # Objetivo
 
 O projeto tem o objetivo de demonstrar o estudo feito pelo autor como parte complementar do TCC de Engenharia de Computação do Centro Universitário Uniftec com o tema:
+
 - **ANÁLISE PREDITIVA DE DADOS METEOROLÓGICOS USANDO MACHINE LEARNING**
+
 Seu desenvolvimento e resultados serão publicados no decorrer do segundo semestre de 2025 como parte da disciplina.
+
 ## 🛠 Instalação
 
 Para que seja possível executar o projeto deverão ser atendidos os requisitos abaixo.
@@ -47,6 +50,7 @@ O projeto conta com a seguinte estrutura.
 
 ```
 /TCC_Engenharia_de_Computacao
+  ├─ docs/
   ├─ scripts/
   | └─ save_weather.py
   ├─ src/
@@ -64,7 +68,7 @@ O projeto conta com a seguinte estrutura.
 Seu objetivo e funcionalidades serão descritos abaixo de forma resumida, porém todos os fontes disponibilizados possuem documentação sobre cada um dos aspectos relevantes para o entendimento da aplicação.
 
 \
-`scripts/save_weather.py` - Script que deverá executado para a extração dos dados que serão analisados
+`scripts/save_weather.py` - Script que deverá ser executado para a extração dos dados que serão analisados
 
 `src/db_config.py` - Funções responsáveis pela manipulação de dados no MongoDB
 
@@ -79,7 +83,7 @@ Todos os recursos foram homologados na IDE [**VSCode**](https://code.visualstudi
   jupyter notebook
 ```
 \
-Esse recurso irá permitir acessar a estrutura pelo navegador pela URL http://localhost:8888/tree, podendo editar os arquivos `py` e executar os arquivos `ipynb`.
+Esse recurso irá permitir acessar a estrutura no navegador pela URL http://localhost:8888/tree, podendo editar os arquivos `py` e executar os arquivos `ipynb`.
 
 ## Autor
 
