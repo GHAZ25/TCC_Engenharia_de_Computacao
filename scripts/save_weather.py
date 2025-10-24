@@ -21,14 +21,14 @@ Fonte: HG Weather (https://console.hgbrasil.com/documentation/weather/tools)
 15015372 - Kyoto (Japão)
 """
 
-try:
-    for woeid in cidades:
+for woeid in cidades:
+    try:
         # Obtém os dados meteorológicos para o WOEID atual
         dados = get_weather(woeid)
 
         # Verifica se os dados foram encontrados
         if dados["results"]["city"] == "" or dados["results"]["city"] == None:
-            raise Exception(f"Dados meteorológicos não encontrados para o WOEID {woeid}.")
+            raise Exception(f"Dados meteorológicos não encontrados para o WOEID {woeid}")
 
         # Adiciona o resultado dos dados metereológicos encontrados no MongoDB
         id = insert_data(DB_TABLE_WEATHER, dados)
@@ -39,11 +39,13 @@ try:
 
             with open(f"{BACKUP_DIR}/{id}.json", "w") as arquivo:
                 json.dump(dados, arquivo)
-except Exception as e:
-    # Cria o diretório de erros se não existir
-    if not os.path.exists(f"{BASE_DIR}/error"):
-        os.makedirs(f"{BASE_DIR}/error")
+    except Exception as e:
+        # Cria o diretório de erros se não existir
+        if not os.path.exists(f"{BASE_DIR}/error"):
+            os.makedirs(f"{BASE_DIR}/error")
 
-    # Registra o erro em um arquivo de log
-    with open(f"{BASE_DIR}/error/{datetime.now().strftime("%Y-%m-%d")}.txt", "a") as arquivo:
-        arquivo.write(f"Erro: {e}.\n")
+        # Registra o erro em um arquivo de log
+        with open(f"{BASE_DIR}/error/{datetime.now().strftime("%Y-%m-%d")}.txt", "a") as arquivo:
+            arquivo.write(f"Erro: {e}.\n")
+
+raise SystemExit(0)
